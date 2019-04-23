@@ -177,13 +177,21 @@ public final class CameraManager {
 	// 開
 	private void turnOn(Camera.Parameters parameters) {
 		parameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
-		camera.setParameters(parameters);
+		try {
+			camera.setParameters(parameters);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	// 關
 	private void turnOff(Camera.Parameters parameters) {
 		parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
-		camera.setParameters(parameters);
+		try {
+			camera.setParameters(parameters);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**

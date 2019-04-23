@@ -1,5 +1,22 @@
 package com.wiser.library;
 
+import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Vector;
+
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.DecodeHintType;
+import com.google.zxing.MultiFormatReader;
+import com.google.zxing.RGBLuminanceSource;
+import com.google.zxing.Result;
+import com.google.zxing.common.HybridBinarizer;
+import com.wiser.library.camera.CameraManager;
+import com.wiser.library.decoding.CaptureActivityHandler;
+import com.wiser.library.decoding.InactivityTimer;
+import com.wiser.library.view.ViewfinderView;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -21,28 +38,10 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
-import android.view.View;
-
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.BinaryBitmap;
-import com.google.zxing.DecodeHintType;
-import com.google.zxing.MultiFormatReader;
-import com.google.zxing.RGBLuminanceSource;
-import com.google.zxing.Result;
-import com.google.zxing.common.HybridBinarizer;
-import com.wiser.library.camera.CameraManager;
-import com.wiser.library.decoding.CaptureActivityHandler;
-import com.wiser.library.decoding.InactivityTimer;
-import com.wiser.library.view.ViewfinderView;
-
-import java.io.IOException;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Vector;
 
 /**
  * @author Wiser
- *         <p>
+ * 
  *         扫一扫
  */
 public abstract class WISERScanActivity extends FragmentActivity implements Callback, WISERPermission.PermissionResultListener {
